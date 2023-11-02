@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load static %} {% block content %} <br />
+{% include "carocel.html" %}
+<div class="row my-5">
+  <div class="col-8">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for blog in blogs %}
+      <div class="col">
+        <div class="card h-100">
+          <div>
+            <a
+              style="text-decoration: none"
+              href="{% url 'blog-details' blog.id %}"
+            >
+              <img
+                style="height: 200px"
+                src="/media/{{blog.blog_image}}"
+                class="card-img-top"
+                alt="..."
+              />
+            </a>
+          </div>
+          <div class="card-body">
+            <a
+              style="text-decoration: none"
+              class="link-dark"
+              href="{% url 'blog-details' blog.id %}"
+              ><h5 class="card-title">{{blog.blog_title }}</h5></a
+            >
+            <p style="text-decoration: none" class="card-text">
+              {% comment %} {{blog.blog_description|safe }} {% endcomment %}
+              {{blog.blog_summary|safe }}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="border border-secondary">
+      <h3 class="">Recent Blog Post Content</h3>
+      {% for blog in blogs|slice:"4:" %}
+      <div class="card-body">
+        <h5 class="card-title">{{blog.blog_title }}</h5>
+        <p style="text-decoration: none" class="card-text mb-0 pb-0">
+          {{blog.blog_summary |safe}}
+        </p>
+        <a
+          style="text-decoration: none"
+          class="mb-0 pb-0"
+          href="{% url 'blog-details' blog.id %}"
+          >see more...</a
+        >
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<section class="mt-5">
+  <h1 class="text-center">Our Services</h1>
+  {% include "service.html" %}
+</section>
+<section class="mt-2">{% include "subscribe.html" %}</section>
+
+{%endblock %}
