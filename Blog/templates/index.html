@@ -26,10 +26,11 @@
               href="{% url 'blog-details' blog.id %}"
               ><h5 class="card-title">{{blog.blog_title }}</h5></a
             >
+            {% comment %}
             <p style="text-decoration: none" class="card-text">
-              {% comment %} {{blog.blog_description|safe }} {% endcomment %}
               {{blog.blog_summary|safe }}
             </p>
+            {% endcomment %}
           </div>
         </div>
       </div>
@@ -47,7 +48,7 @@
         </p>
         <a
           style="text-decoration: none"
-          class="mb-0 pb-0"
+          class="mt-0 pt-0"
           href="{% url 'blog-details' blog.id %}"
           >see more...</a
         >
