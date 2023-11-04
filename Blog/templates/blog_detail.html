@@ -26,7 +26,7 @@
         <div class="card-body">
           <h5 class="card-title">{{blog.blog_title }}</h5>
           <p class="card-text mb-0 pb-0">{{blog.blog_summary | safe }}</p>
-          <a class="mb-0 pb-0" href="{% url 'blog-details' blog.id %}"
+          <a class="mb-0 pb-0"  href="/blogDetails/{{blog.blog_slug}}""
             >see more...</a
           >
         </div>

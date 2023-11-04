@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-@login_required
+
 def HomePage(request):
   blogs = Blog.objects.all().order_by('blog_title')
   context={
@@ -14,9 +14,12 @@ def HomePage(request):
   }
   return render(request, 'index.html',context)
 
-def blog_details(request,pk=None):
-  blog= Blog.objects.get(id=pk)
-  blogs= Blog.objects.all().order_by('blog_title')
+
+
+
+def blog_details(request,slug):
+  blog= Blog.objects.get(blog_slug = slug)
+  blogs= Blog.objects.all().order_by('-blog_title')
   context={
     'blog': blog,
     'blogs':blogs

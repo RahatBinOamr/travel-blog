@@ -9,7 +9,7 @@
           <div>
             <a
               style="text-decoration: none"
-              href="{% url 'blog-details' blog.id %}"
+              href="/blogDetails/{{blog.blog_slug}}"
             >
               <img
                 style="height: 200px"
@@ -23,14 +23,9 @@
             <a
               style="text-decoration: none"
               class="link-dark"
-              href="{% url 'blog-details' blog.id %}"
+              href="/blogDetails/{{blog.blog_slug}}"
               ><h5 class="card-title">{{blog.blog_title }}</h5></a
             >
-            {% comment %}
-            <p style="text-decoration: none" class="card-text">
-              {{blog.blog_summary|safe }}
-            </p>
-            {% endcomment %}
           </div>
         </div>
       </div>
@@ -49,7 +44,7 @@
         <a
           style="text-decoration: none"
           class="mt-0 pt-0"
-          href="{% url 'blog-details' blog.id %}"
+          href="/blogDetails/{{blog.blog_slug}}"
           >see more...</a
         >
       </div>
